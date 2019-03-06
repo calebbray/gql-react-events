@@ -10,10 +10,10 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const USER = process.env.MONGO_USER;
 const PASS = process.env.MONGO_PASSWORD;
-const DB = process.env.MONGO_DB;
+const DB = process.env.MONGO_DB || 'test';
 
 app.use(
   '/graphql',
