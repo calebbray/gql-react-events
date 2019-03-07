@@ -2,11 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
+const isAuth = require('./middleware/isAuth');
 
 const schema = require('./graphql/schema');
 const resolvers = require('./graphql/resolvers');
 
 const app = express();
+
+app.use(isAuth);
 
 app.use(bodyParser.json());
 
