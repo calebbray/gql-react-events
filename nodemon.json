@@ -3,6 +3,6 @@
     "MONGO_USER": "caleb",
     "MONGO_PASSWORD": "SSuOKcnNiQI6zud1",
     "MONGO_DB": "events-react-dev",
-    "PORT": 3000
+    "PORT": 8000
   }
 }

@@ -9,11 +9,21 @@ const resolvers = require('./graphql/resolvers');
 
 const app = express();
 
-app.use(isAuth);
-
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
+app.use(isAuth);
+
+const PORT = process.env.PORT;
 const USER = process.env.MONGO_USER;
 const PASS = process.env.MONGO_PASSWORD;
 const DB = process.env.MONGO_DB || 'test';
