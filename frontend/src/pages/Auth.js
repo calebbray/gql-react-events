@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthContext from '../context/authContext';
 
 import './Auth.css';
 
@@ -12,6 +13,8 @@ class AuthPage extends Component {
   state = {
     isLogin: true
   };
+
+  static contextType = AuthContext;
 
   switchMode = e => {
     this.setState({ isLogin: !this.state.isLogin });
@@ -68,7 +71,11 @@ class AuthPage extends Component {
         return res.json();
       })
       .then(data => {
-        console.log(data);
+        const { token, tokenExpiration, userId } = data.data.login;
+        if (token) {
+          this.context.login(token, userId, tokenExpiration);
+        }
+        console.log(token, userId);
       })
       .catch(err => {
         console.log(err);
