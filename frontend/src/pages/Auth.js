@@ -75,7 +75,6 @@ class AuthPage extends Component {
         if (token) {
           this.context.login(token, userId, tokenExpiration);
         }
-        console.log(token, userId);
       })
       .catch(err => {
         console.log(err);
@@ -95,7 +94,9 @@ class AuthPage extends Component {
           <input id="password" type="password" ref={this.passwordEl} />
         </div>
         <div className="form-action">
-          <button type="submit">{this.state.isLogin ? 'Login' : 'Register'}</button>
+          <button type="submit">
+            {this.state.isLogin ? 'Login' : 'Register'}
+          </button>
           <button type="button" onClick={this.switchMode}>
             {this.state.isLogin ? 'Register' : 'Login'}
           </button>

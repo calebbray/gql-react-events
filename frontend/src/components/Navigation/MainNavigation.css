@@ -32,21 +32,31 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  align-items: center;
 }
 
 .main-navigation-item li {
   margin: 0 1rem;
 }
 
-.main-navigation-item a {
+.main-navigation-item a,
+.main-navigation-item button {
   text-decoration: none;
   color: white;
   padding: 0.25rem 0.5rem;
+  border: none;
+  font: inherit;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 0;
 }
 
 .main-navigation-item a:hover,
 .main-navigation-item a:active,
-.main-navigation-item a.active {
+.main-navigation-item a.active,
+.main-navigation-item button:hover,
+.main-navigation-item button:active {
   background: #ffffff;
   color: #5101d1;
   border-radius: 5px;
